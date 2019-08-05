@@ -15,27 +15,27 @@
     const m = d.getMinutes();
     const s = d.getSeconds();
     const ms = d.getMilliseconds();
-    timer.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}.${String(ms).padStart(3, '0')}`;
+    timer.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}.${String(ms).padStart(3, '0')}`;//string 文字列に
 
 
-    timeoutId = setTimeout(() => {
+    timeoutId = setTimeout(() => { //指定した時間の後に一回だけ処理を実行
       countUp();
     }, 10);
   }
 
-  function setButtonStateInitial() {
+  function setButtonStateInitial() { //ボタンの状態
     start.classList.remove('inactive');
     stop.classList.add('inactive');
     reset.classList.add('inactive');
   }
 
-  function setButtonStateRunning() {
+  function setButtonStateRunning() { //ボタンの状態
     start.classList.add('inactive');
     stop.classList.remove('inactive');
     reset.classList.add('inactive');
   }
 
-  function setButtonStateStopped() {
+  function setButtonStateStopped() { //ボタンの状態
     start.classList.remove('inactive');
     stop.classList.add('inactive');
     reset.classList.remove('inactive');
@@ -58,7 +58,7 @@
       return;
     }
     setButtonStateStopped();
-    clearTimeout(timeoutId);
+    clearTimeout(timeoutId); //setTimeoutを止める
     elapsedTime += Date.now() - startTime;
   });
 
